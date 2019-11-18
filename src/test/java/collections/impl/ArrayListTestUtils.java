@@ -11,7 +11,7 @@ public class ArrayListTestUtils {
 
     public static ArrayList<Integer> ADD_ARRAY_LIST = new ArrayList<>(START_ARRAY_SIZE, START_FILL_FACTOR);
     public static final Integer ADD_INTEGER = new Integer(1);
-    public static final int AFTER_ADD_ARRAY_LIST_SIZE = START_ARRAY_SIZE * ArrayList.DEF_MAGNIFICATION_FACTOR;
+    public static final int AFTER_ADD_ARRAY_LIST_SIZE = START_ARRAY_SIZE * ArrayList.getDefMagnificationFactor();
 
     public static ArrayList<Integer> REMOVE_ARRAY_LIST = new ArrayList<>(START_ARRAY_SIZE, START_FILL_FACTOR);
     public static final Integer REMOVE_INTEGER = new Integer(1);
@@ -27,11 +27,21 @@ public class ArrayListTestUtils {
     public static final int GET_INDEX = 0;
     public static final int GET_NULL_INDEX = 1;
 
+    public static ArrayList<Integer> ITERATOR_ARRAY_LIST = new ArrayList<>(START_ARRAY_SIZE, START_FILL_FACTOR);
+    public static final Integer FIRST_INTEGER_FOR_ITERATOR = new Integer(1);
+    public static final Integer LAST_INTEGER_FOR_ITERATOR = new Integer(2);
+    public static final boolean FIRST_ITERATOR_HAS_NEXT = true;
+    public static final boolean SECOND_ITERATOR_HAS_NEXT = true;
+    public static final boolean LAST_ITERATOR_HAS_NEXT = true;
+
     static
     {
         REMOVE_ARRAY_LIST.add(REMOVE_INTEGER);
         REMOVE_ARRAY_LIST.add(GET_AFTER_REMOVE_INTEGER);
 
         GET_ARRAY_LIST.add(GET_INTEGER);
+
+        ITERATOR_ARRAY_LIST.add(FIRST_INTEGER_FOR_ITERATOR);
+        ITERATOR_ARRAY_LIST.add(LAST_INTEGER_FOR_ITERATOR);
     }
 }

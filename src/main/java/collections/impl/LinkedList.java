@@ -1,8 +1,9 @@
 package collections.impl;
 
+import collections.Iterator;
 import collections.List;
 
-import java.util.Iterator;
+//import java.util.Iterator;
 
 public class LinkedList<E> implements List<E> {
     @Override

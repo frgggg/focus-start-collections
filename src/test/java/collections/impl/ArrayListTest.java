@@ -4,18 +4,11 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-
+import collections.Iterator;
 import static org.junit.Assert.*;
-
 import static collections.impl.ArrayListTestUtils.*;
 
 public class ArrayListTest {
-
-    @Before
-    public void init() {
-
-    }
-
     @Rule
     public ExpectedException testException = ExpectedException.none();
 
@@ -68,5 +61,11 @@ public class ArrayListTest {
 
     @Test
     public void iterator() {
+        Iterator<Integer> testIterator = ITERATOR_ARRAY_LIST.iterator();
+        assertEquals(testIterator.hasNext(), true);
+        assertEquals(testIterator.next(), FIRST_INTEGER_FOR_ITERATOR);
+        assertEquals(testIterator.hasNext(), true);
+        assertEquals(testIterator.next(), LAST_INTEGER_FOR_ITERATOR);
+        assertEquals(testIterator.hasNext(), false);
     }
 }

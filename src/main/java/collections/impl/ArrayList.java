@@ -2,8 +2,7 @@ package collections.impl;
 
 import collections.List;
 
-import java.lang.reflect.Array;
-import java.util.Iterator;
+import collections.Iterator;
 
 public class ArrayList<E> implements List<E> {
     public static final String THROW_ARRAY_SIZE = "Array size <= 0.";
@@ -11,7 +10,7 @@ public class ArrayList<E> implements List<E> {
 
     private static final int DEF_ARRAY_LIST_SIZE = 16;
     private static final double DEF_FILL_FACTOR = 0.75;
-    public static final int DEF_MAGNIFICATION_FACTOR = 2;
+    private static final int DEF_MAGNIFICATION_FACTOR = 2;
 
     private int size = 0;
     private int arraySize = DEF_ARRAY_LIST_SIZE;
@@ -85,11 +84,12 @@ public class ArrayList<E> implements List<E> {
     @Override
     public Iterator<E> iterator() {
         return new Iterator<E>() {
-            Object[] iteratorArray = array;
-            int point = 0;
+            private Object[] iteratorArray = array;
+            private int iteratorArraySize = size;
+            private int point = 0;
             @Override
             public boolean hasNext() {
-                if(point < iteratorArray.length)
+                if(point < size)
                     return true;
                 return false;
             }
@@ -133,5 +133,8 @@ public class ArrayList<E> implements List<E> {
     }
     public double getFillFactor() {
         return fillFactor;
+    }
+    public static int getDefMagnificationFactor() {
+        return DEF_MAGNIFICATION_FACTOR;
     }
 }
