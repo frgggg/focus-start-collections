@@ -52,6 +52,8 @@ public class LinkedList<E> implements List<E> {
     private Node firstNode = null;
     private Node headNode = null;
 
+    private int size = 0;
+
     @Override
     public boolean add(E e) {
         if (firstNode == null)
@@ -63,29 +65,91 @@ public class LinkedList<E> implements List<E> {
             headNode.next = new Node(e);
             headNode = headNode.next;
         }
+        size += 1;
         return true;
     }
 
     public boolean add(E e, int index) {
-        //todo написать реализацию
+        if((index >= 0) && (index < size))
+        {
+            // 0 1 2 3|| 4 || 2
+            Node leftNode = firstNode;
+            for(int i = 0; i < (index-1); i++)
+                leftNode = leftNode.next;
+            Node rightNode = leftNode.next;
+            Node nodeForAdd = new Node(e);
+            leftNode.next = nodeForAdd;
+
+            nodeForAdd.prev = leftNode;
+            nodeForAdd.next = rightNode;
+
+            rightNode.prev = nodeForAdd;
+
+            size += 1;
+            return true;
+        }
         return false;
     }
 
     @Override
     public E remove(int index) {
-        //todo написать реализацию
+        if((index >= 0) && (index < size))
+        {
+            // 0 1 2  3 || 4 || 2
+            Node leftNode = firstNode;
+            for(int i = 0; i < (index-1); i++)
+                leftNode = leftNode.next;
+            Node ret = leftNode.next;
+            Node rightNode = leftNode.next.next;
+            leftNode.next = rightNode;
+            rightNode.prev = leftNode;
+            size -= 1;
+            return ret.getData();
+        }
         return null;
     }
 
     @Override
     public E get(int index) {
-        //todo написать реализацию
+        if((index >= 0) && (index < size)) {
+            // 0 1 2  3 || 4 || 2
+            Node node = firstNode;
+            for (int i = 0; i < index; i++)
+                node = node.next;
+            return node.getData();
+        }
         return null;
     }
 
     @Override
     public Iterator<E> iterator() {
-        //todo написать реализацию
-        return null;
+        Node copyNode = (Node)firstNode.clone();
+        return new Iterator<E>() {
+            private Node node = copyNode;
+            @Override
+            public boolean hasNext() {
+                return node != null;
+            }
+
+            @Override
+            public E next() {
+                E ret;
+                if(node.next != null) {
+                    ret = node.getData();
+                    node = node.next;
+                }
+                else
+                {
+                    if(node != null)
+                    {
+                        ret = node.getData();
+                        node = null;
+                        return ret;
+                    }
+                    return null;
+                }
+                return null;
+            }
+        };
     }
 }
