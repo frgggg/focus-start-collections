@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="collections.impl.LinkedListTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-11-19T10:34:48" hostname="fedor-System-Product-Name" time="0.008">
+  <properties/>
+  <testcase name="addByIndexThrowNullValue" classname="collections.impl.LinkedListTest" time="0.005"/>
+  <testcase name="remove" classname="collections.impl.LinkedListTest" time="0.0"/>
+  <testcase name="addAndGet" classname="collections.impl.LinkedListTest" time="0.0"/>
+  <testcase name="addThrowNullValue" classname="collections.impl.LinkedListTest" time="0.0"/>
+  <testcase name="iterator" classname="collections.impl.LinkedListTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
