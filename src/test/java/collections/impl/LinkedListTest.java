@@ -47,9 +47,7 @@ public class LinkedListTest {
         {
             addTestList.add(ADD_BY_INDEX_TESTS_VALUES[i], ADD_BY_INDEX_TESTS_INDEXES[i]);
             for(int j = 0; j < ADD_BY_INDEX_TESTS[i].length; j++)
-            {
                 assertEquals(addTestList.get(j), ADD_BY_INDEX_TESTS[i][j]);
-            }
         }
     }
 
@@ -63,9 +61,7 @@ public class LinkedListTest {
         {
             removeTestList.remove(REMOVE_TESTS_INDEXES[i]);
             for(int j = 0; j < REMOVE_TESTS[i].length; j++)
-            {
                 assertEquals(removeTestList.get(j), REMOVE_TESTS[i][j]);
-            }
         }
 
     }
